@@ -5,7 +5,7 @@ include:
 
 /etc/apache2/sites-enabled/000-default.conf:
   file.managed:
-    - source: salt://files/000-default.conf
+    - source: salt://apache/files/000-default.conf
     - watch_in:
       - module: apache-restart
     - require:
