@@ -10,7 +10,7 @@
 
 apache_ppa:
   pkgrepo.managed:
-        - ppa: {{ ppa_name }}
+    - ppa: {{ ppa_name }}
   pkg.latest:
     - name: {{ apache.server }}
     - refresh: True
