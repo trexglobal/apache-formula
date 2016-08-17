@@ -1,5 +1,25 @@
 {% from "apache/map.jinja" import apache with context %}
 
+
+{% set use_ppa        = salt['pillar.get']('apache:use_ppa', none) %}
+
+
+{% if grains['os_family']=="Debian" and use_ppa is not none %}
+
+{% set ppa_name = salt['pillar.get']('php:ppa_name', 'ondrej/apache2') %}
+
+apache_ppa:
+  pkgrepo.managed:
+        - ppa: {{ ppa_name }}
+    pkg.latest:
+        - name: {{ apache.server }}
+        - refresh: True
+    service:
+    - running
+    - name: {{ apache.service }}
+    - enable: True    
+{% else %}
+
 apache:
   pkg:
     - installed
@@ -8,6 +28,8 @@ apache:
     - running
     - name: {{ apache.service }}
     - enable: True
+
+{% endif %}
 
 apache-reload:
   module:
