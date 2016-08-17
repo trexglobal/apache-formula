@@ -11,13 +11,12 @@
 apache_ppa:
   pkgrepo.managed:
         - ppa: {{ ppa_name }}
-    pkg.latest:
-        - name: {{ apache.server }}
-        - refresh: True
-    service:
-      - running
-      - name: {{ apache.service }}
-      - enable: True    
+  pkg.latest:
+    - name: {{ apache.server }}
+    - refresh: True
+  service.running:
+    - name: {{ apache.service }}
+    - enable: True    
 {% else %}
 
 apache:
