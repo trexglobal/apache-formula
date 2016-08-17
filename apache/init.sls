@@ -15,9 +15,9 @@ apache_ppa:
         - name: {{ apache.server }}
         - refresh: True
     service:
-    - running
-    - name: {{ apache.service }}
-    - enable: True    
+      - running
+      - name: {{ apache.service }}
+      - enable: True    
 {% else %}
 
 apache:
