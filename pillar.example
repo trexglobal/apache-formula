@@ -1,5 +1,6 @@
 # ``apache`` formula configuration:
 apache:
+  use_ppa: True
   server: apache2
   service: apache2
 
