@@ -8,7 +8,7 @@ mod_wsgi:
     - installed
     - name: {{ apache.mod_wsgi }}
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
 
 {% if grains.get('os_family') == 'RedHat' %}
 /etc/httpd/conf.d/wsgi.conf:

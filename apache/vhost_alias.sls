@@ -8,7 +8,7 @@ a2enmod vhost_alias:
     - unless: ls /etc/apache2/mods-enabled/vhost_alias.load
     - order: 225
     - require:
-      - pkg: apache2
+      - pkg: {{ apache.pkg }}
     - watch_in:
       - module: apache-restart
 

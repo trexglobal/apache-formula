@@ -8,7 +8,7 @@ mod-php5:
     - name: libapache2-mod-php5
     - order: 180
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
 
 a2enmod php5:
   cmd.run:
@@ -27,7 +27,7 @@ a2enmod php5:
     - watch_in:
       - module: apache-restart
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
       - pkg: php5
 {% endif %}
 

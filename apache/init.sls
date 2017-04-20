@@ -1,7 +1,7 @@
 {% from "apache/map.jinja" import apache with context %}
 
 
-{% set use_ppa        = salt['pillar.get']('apache:use_ppa', none) %}
+{% set use_ppa = salt['pillar.get']('apache:use_ppa', none) %}
 
 
 {% if grains['os_family']=="Debian" and use_ppa is not none %}
@@ -16,7 +16,7 @@ apache_ppa:
     - refresh: True
   service.running:
     - name: {{ apache.service }}
-    - enable: True    
+    - enable: True
 {% else %}
 
 apache:

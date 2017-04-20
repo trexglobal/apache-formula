@@ -24,18 +24,18 @@ a2dissite 000-default:
     - watch_in:
       - module: apache-reload
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
 
 /etc/apache2/sites-available/default:
   file.absent:
     - order: 230
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
 
 /etc/apache2/sites-available/default-ssl:
   file.absent:
     - order: 230
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
 
 {% endif %} #END: os = debian

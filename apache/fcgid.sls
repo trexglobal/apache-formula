@@ -8,7 +8,7 @@ mod-fcgid:
     - name: libapache2-mod-fcgid
     - order: 180
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
 
 a2enmod fcgid:
   cmd.run:

@@ -16,7 +16,7 @@ include:
         site: {{ site|json }}
         map: {{ apache|json }}
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
     - watch_in:
       - module: apache-reload
 

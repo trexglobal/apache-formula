@@ -20,7 +20,7 @@ a2dissite {{ pillar['apache']['register-site'][site]['name'] }}:
 {% endif %}
     - order: 230
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
       - file: /etc/apache2/sites-available/{{ pillar['apache']['register-site'][site]['name'] }}
 
 {% endif %}

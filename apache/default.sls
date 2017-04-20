@@ -9,6 +9,6 @@ include:
     - watch_in:
       - module: apache-restart
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
 
 {% endif %} #END: os = debian

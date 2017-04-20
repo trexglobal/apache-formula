@@ -8,7 +8,7 @@ a2enmod rewrite:
     - unless: ls /etc/apache2/mods-enabled/rewrite.load
     - order: 225
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
     - watch_in:
       - module: apache-restart
 

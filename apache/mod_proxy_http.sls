@@ -9,7 +9,7 @@ a2enmod proxy_http:
     - unless: ls /etc/apache2/mods-enabled/proxy_http.load
     - order: 225
     - require:
-      - pkg: apache
+      - pkg: {{ apache.pkg }}
       - cmd: a2enmod proxy
     - watch_in:
       - module: apache-restart
