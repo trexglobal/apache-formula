@@ -1,3 +1,4 @@
+{% from "apache/map.jinja" import apache with context %}
 {% if grains['os_family']=="Debian" %}
 
 {% if 'apache' in pillar and 'register-site' in pillar['apache'] %} #BEGIN: ['apache']['register-site']
